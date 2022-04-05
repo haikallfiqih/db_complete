@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+
+<!-- make form that required username, name, password and password confirmation -->
+<form action="/register" method="POST">
+    <div class="row mb-3">
+        <label for="username" class="col-2 col-form-label">Username</label>
+        <div class="col-6">
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username" required/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="name" class="col-2 col-form-label">Name</label>
+        <div class="col-6">
+            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="password" class="col-2 col-form-label">Password</label>
+        <div class="col-6">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="password_confirmation" class="col-2 col-form-label">Password Confirmation</label>
+        <div class="col-6">
+            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control" placeholder="Password Confirmation" required/>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-6">
+            <input type="submit" value="Register" class="btn btn-primary"/>
+        </div>
+    </div>
+</form>
+
+    {% for message in get_flashed_messages() %}
+    <div>{{ message }}</div>
+    {% endfor %}
+
+{% endblock %}
